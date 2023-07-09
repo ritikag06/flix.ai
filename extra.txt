@@ -1,0 +1,63 @@
+openai.api_key = 'YOUR_API_KEY'
+#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
+
+def prompt_user(question):
+    # Function to prompt the user and get their response
+    user_input = input(question + " ")
+    return user_input
+
+def get_movie_suggestions(mood, genre, actors, directors, feel):
+    # Function to get movie suggestions based on user preferences
+    # You can customize this function based on your specific requirements
+    # Here, I'm assuming you have a pre-defined list of movies and their attributes
+    
+    # Sample movies
+    movies = [
+        {"title": "Movie 1", "mood": "happy", "genre": "comedy", "actors": ["Actor A", "Actor B"], "director": "Director X"},
+        {"title": "Movie 2", "mood": "sad", "genre": "drama", "actors": ["Actor C", "Actor D"], "director": "Director Y"},
+        {"title": "Movie 3", "mood": "joyous", "genre": "romance", "actors": ["Actor E", "Actor F"], "director": "Director Z"},
+        # Add more movies with their attributes
+    ]
+    
+    # Filter movies based on user preferences
+    suggestions = []
+    for movie in movies:
+        if (
+            movie["mood"] == mood and
+            movie["genre"] == genre and
+            all(actor in movie["actors"] for actor in actors) and
+            movie["director"] == directors and
+            movie["feel"] == feel
+        ):
+            suggestions.append(movie["title"])
+    
+    return suggestions
+
+# Main conversation loop
+def chat():
+    # Prompt user for their mood
+    mood = prompt_user("How are you feeling today?")
+    
+    # Prompt user for preferred genre
+    genre = prompt_user("What genre of movie do you prefer?")
+    
+    # Prompt user for preferred actors
+    actors = prompt_user("Which actors do you like? (Please separate with commas if multiple)")
+    actors = actors.split(", ")
+    
+    # Prompt user for preferred directors
+    directors = prompt_user("Which directors do you prefer?")
+    
+    # Prompt user for the feel of the movie
+    feel = prompt_user("What kind of feel are you looking for in the movie?")
+    
+    # Get movie suggestions based on user preferences
+    suggestions = get_movie_suggestions(mood, genre, actors, directors, feel)
+    
+    # Provide the suggestions to the user
+    if suggestions:
+        print("Based on your preferences, I suggest the following movie:")
+        for movie in suggestions:
+            print("- " + movie)
+    else:
+        print("I'm sorry, but I couldn't find any movies matching your preferences.")
