@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FIX & FLIX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav li {
+            margin-right: 10px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        .nav a:hover {
+            background-color: #555;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            border: 1px solid #ccc;
+        }
+
+        .calendar .cell {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .event-form {
+            margin-top: 20px;
+        }
+
+        .event-form input[type="text"],
+        .event-form input[type="date"],
+        .event-form input[type="time"],
+        .event-form input[type="number"] {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 200px;
+        }
+
+        .event-form input[type="submit"] {
+            padding: 5px 10px;
+        }
+
+        .event-list {
+            margin-top: 20px;
+        }
+
+        .event-list-item {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+
+        .event {
+            background-color: #cce5ff;
+            padding: 2px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/flix">Flix</a></li>
+                <li><a href="/grocery">Grocery</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="calendar">
+        <div class="cell">Sunday</div>
+        <div class="cell">Monday</div>
+        <div class="cell">Tuesday</div>
+        <div class="cell">Wednesday</div>
+        <div class="cell">Thursday</div>
+        <div class="cell">Friday</div>
+        <div class="cell">Saturday</div>
+
+        <!-- Calendar days -->
+        <!-- ... (calendar days omitted for brevity) ... -->
+    </div>
+
+    <form class="event-form" method="POST" action="/add_event">
+        <input type="text" name="eventName" placeholder="Event Name" required>
+        <input type="number" name="taskDuration" placeholder="Task Duration (in minutes)" required>
+        <input type="date" name="taskDeadline" required>
+        <input type="time" name="sleepStartTime" placeholder="Sleep Start Time" required>
+        <input type="time" name="wakeUpTime" placeholder="Wake Up Time" required>
+        <input type="submit" value="Add Event">
+    </form>
+
+    <div class="event-list">
+        <h3>Events</h3>
+        <div id="eventList">
+            <!-- ... (event list omitted for brevity) ... -->
+        </div>
+    </div>
+</body>
+</html>
