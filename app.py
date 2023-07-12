@@ -105,7 +105,7 @@ def add_event():
     return render_template('index.html', calendar=calendar)
 
 
-openai.api_key = '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'
+openai.api_key = ''
 
 def suggest_movie(mood, genre, actors, directors, feel):
     # Generate a prompt based on user responses
